@@ -1,12 +1,25 @@
+const Recipes= require("../models/recipe");
+
+
 const getRecipes = (req, res) => {
     res.json({ message: "hello " });
 }
 const getRecipe = (req, res) => {
     res.json({ message: "hello " });
 }
-const addRecipe = (req, res) => {
-    res.json({ message: "hello " });
-}
+const addRecipe async  = (req, res) => {
+    const {title,ingredients,instructions,time,coverImage}=req.body
+    if(!title || !ingredients || !instructions || !time || !coverImage){
+        res.json({message:"Required fields cant be empty"})
+    }      return res.json(newRecipe)
+} 
+const newRecipe= await Recipes.create({
+    title,
+    ingredients,
+    instructions,
+    time,
+    coverImage
+})
 const editRecipe = (req, res) => {
     res.json({ message: "hello " });
 }
