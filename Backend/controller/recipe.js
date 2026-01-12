@@ -1,27 +1,34 @@
 const Recipes= require("../models/recipe");
 
 
-const getRecipes = (req, res) => {
-    res.json({ message: "hello " });
+const getRecipes = async  (req, res) => {
+    const recipes= await Recipes.find()
+    res.json(recipes);
 }
-const getRecipe = (req, res) => {
-    res.json({ message: "hello " });
+const getRecipe = async (req, res) => {
+    const recipe= await Recipes.findById(req.params.id)
+    res.json(recipe);
 }
-const addRecipe async  = (req, res) => {
-    const {title,ingredients,instructions,time,coverImage}=req.body
-    if(!title || !ingredients || !instructions || !time || !coverImage){
+const addRecipe= async  (req, res) => {
+    const {title,ingredients,instructions,time}=req.body
+    if(!title || !ingredients || !instructions ){
         res.json({message:"Required fields cant be empty"})
     }      return res.json(newRecipe)
 } 
 const newRecipe= await Recipes.create({
-    title,
-    ingredients,
-    instructions,
-    time,
-    coverImage
+    title,ingredients,instructions,time, coverImage
 })
-const editRecipe = (req, res) => {
-    res.json({ message: "hello " });
+const editRecipe = async (req, res) => {
+  const {title,ingredients,instructions,time}=req.body
+    let recipe= await Recipes.findByIdAndUpdate(req.params.id,)
+try{
+    if(recipe){
+        await recipe.findByIdAndUpdate(req.params.id,req.body,{new:true})
+        res.json({title,ingredients,instructions,time})
+    }
+}catch(error){
+    res.status(404).json({message:"error"})                            
+}
 }
 const deleteRecipe = (req, res) => {
     res.json({ message: "hello " });
