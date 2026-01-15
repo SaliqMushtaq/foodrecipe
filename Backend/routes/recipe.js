@@ -1,6 +1,6 @@
 const express = require("express");
-const{getRecipes,getRecipe,addRecipe, editRecipe, deleteRecipe}=require("../controller/recipe");
-
+//const{getRecipes,getRecipe,addRecipe, editRecipe, deleteRecipe}=require("../controller/recipe")
+const {getRecipes, getRecipe, addRecipe, editRecipe, deleteRecipe} = require("../controller/recipe");
 const router = express.Router();
 router.get("/", getRecipes); //get recipes
 router.get("/:id", getRecipe);//get recipe by id
