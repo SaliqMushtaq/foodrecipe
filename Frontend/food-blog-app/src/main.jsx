@@ -1,15 +1,10 @@
-// import { render } from 'preact'
-// import './index.css'
-// import { App } from './app.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./app.jsx";
+import "./index.css";
 
-// render(<App />, document.getElementById('app'))
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import {App} from './app.jsx'
-import './index.css'
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("app")).render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
