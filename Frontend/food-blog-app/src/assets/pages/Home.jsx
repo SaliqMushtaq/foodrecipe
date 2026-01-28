@@ -22,6 +22,7 @@ export default function Home() {
 
     return (
         <>
+        <Navbar/>
             <section className='home'>
                 <div className='left'>
                     <h1>Food Recipe</h1>
@@ -38,6 +39,11 @@ export default function Home() {
             {(isOpen) && <Modal onClose={() => setIsOpen(false)}><InputForm setIsOpen={() => setIsOpen(false)} /></Modal>}
             <div className='recipe'>
                 <RecipeItems />
+            </div>
+            <footer/>        
+            <div className='recipe'>
+                <RecipeItems />
+
             </div>
         </>
     )

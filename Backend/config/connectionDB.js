@@ -1,22 +1,6 @@
-// const mongoose=require("mongoose")
-// const connectDb=async()=>{
-//     await mongoose.connect(process.env.CONNECTION_STRING)
-//         .then(()=>("connected..."))}
-//         module.exports=connectDb;
-const mongoose = require("mongoose");
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-const connectDb = async () => {
-  try {
-    const connect = await mongoose.connect(process.env.CONNECTION_STRING);
-    console.log(
-      "Database connected:",
-      connect.connection.host,
-      connect.connection.name
-    );
-  } catch (err) {
-    console.log("Database connection error:", err);
-    process.exit(1);
-  }
-};
-
-module.exports = connectDb;
+export default defineConfig({
+  plugins: [react()],
+});
