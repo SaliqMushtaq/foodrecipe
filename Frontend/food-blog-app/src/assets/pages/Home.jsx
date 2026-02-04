@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import foodRecipe from '../assets/foodRecipe.png'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-import RecipeItems from '../components/RecipeItems'
+import foodRecipe from '../foodRecipe.png'
+import Navbar from '../../components/Navbar'
+import Footer from '../../components/Footer'
+import RecipeItems from '../../components/Recipeitems'
 import { useNavigate } from 'react-router-dom'
-import Modal from '../components/Modal'
-import InputForm from '../components/InputForm'
+import Modal from '../../components/Modal'
+import InputForm from '../../components/InputForm'
 
 export default function Home() {
     const navigate = useNavigate()
@@ -40,11 +40,7 @@ export default function Home() {
             <div className='recipe'>
                 <RecipeItems />
             </div>
-            <footer/>        
-            <div className='recipe'>
-                <RecipeItems />
-
-            </div>
+            <Footer/>        
         </>
     )
 }
